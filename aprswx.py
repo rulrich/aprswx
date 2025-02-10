@@ -4,8 +4,9 @@ import json
 import requests
 import datetime
 import time
-from requests.auth import HTTPBasicAuth
 import importlib.util
+from requests.auth import HTTPBasicAuth
+
 
 # Moderne Art, Konfigurationsdateien zu importieren
 def load_config(filename):
