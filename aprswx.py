@@ -93,8 +93,8 @@ def main():
     # Stationen nach Rubriken filtern
     selected_stations = [
         station["callsign"]
-        for station in stations
-        if any(rubric['rubric'] == station['rubric'] for rubric in rubrics)
+        for station in stations.stations
+        if any(rubric['rubric'] == station['rubric'] for rubric in rubrics.rubrics)
     ]
     
     # In Chunks verarbeiten
@@ -107,7 +107,7 @@ def main():
         
         for entry in wx["entries"]:
             station = next(
-                item for item in stations 
+                item for item in stations.stations 
                 if item["callsign"] == entry["name"]
             )
             send_DAPNET(entry, station)
